@@ -1,14 +1,12 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "n% Summer Is Gone",
   description: "Be conscious of your summer holidays with a percentage stat.",
-  icons: {
-    icon: "/sun.png",
-  },
 };
 
 export default function RootLayout({
@@ -21,7 +19,10 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
