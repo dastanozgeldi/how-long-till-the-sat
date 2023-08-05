@@ -1,8 +1,9 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Press_Start_2P } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import Image from "next/image";
 
-const inter = Inter({ subsets: ["latin"] });
+const pressStart2P = Press_Start_2P({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata = {
   title: "n% Summer Is Gone",
@@ -15,12 +16,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={pressStart2P.className}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className={inter.className}>
-        {children}
+      <body className="relative">
+        <Image
+          className="absolute z-0 object-cover object-center opacity-60 w-full h-full"
+          src="/background.jpeg"
+          alt="..."
+          width={1920}
+          height={1080}
+        />
+        <main className="left-1/2 w-full z-10">{children}</main>
         <Analytics />
       </body>
     </html>

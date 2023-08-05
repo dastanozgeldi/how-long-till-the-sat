@@ -1,41 +1,33 @@
 "use client";
 
-import Image from "next/image";
-import sunLogo from "./assets/sun.png";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [percentage, setPercentage] = useState("0");
+
   const calculatePercentage = () => {
     const currentDate = new Date();
-
-    const firstDayOfSummer = new Date("June 1, 2023 00:00:00");
     const lastDayOfSummer = new Date("August 31, 2023 23:59:59");
 
-    const diffFirst = currentDate.getTime() - firstDayOfSummer.getTime();
-    const diffLast = lastDayOfSummer.getTime() - firstDayOfSummer.getTime();
+    const left =
+      (lastDayOfSummer.getTime() - currentDate.getTime()) / 24 / 60 / 60 / 1000;
 
-    const gone = (diffFirst / diffLast) * 100;
-    return gone.toFixed(2);
+    setPercentage(left.toFixed(6));
   };
 
+  useEffect(() => {
+    calculatePercentage();
+    const interval = setInterval(calculatePercentage, 100);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="max-w-[1280px] mx-auto p-[2rem] text-center">
-      <Image
-        src={sunLogo}
-        className="mx-auto my-6 w-[6em] h-[6em] hover:drop-shadow-[0_0_2em_#61dafbaa] hover:duration-300 cursor-pointer animate-[spin_20s_ease-in-out_infinite]"
-        alt="Sun logo"
-      />
-      <h1 className="leading-[2.5] font-bold text-[3.2em]">
-        {calculatePercentage()}%
+    <div className="max-w-[1280px] mx-auto p-[2rem] text-center space-y-3">
+      <h1 className="font-extrabold text-6xl">
+        {percentage.split(".")[0]}
+        <span className="mx-1 text-xl">.{percentage.split(".")[1]}</span>
       </h1>
-      <h2 className="text-[1.4em] font-bold leading-[2]">of summer is gone.</h2>
-      <div className="my-3">
-        <a
-          className="text-[#888]"
-          href="https://www.youtube.com/watch?v=YucXxma_-ko"
-        >
-          🔗 How To Stop Wasting Your Life
-        </a>
-      </div>
+      <h2 className="text-xl opacity-75">days till school</h2>
     </div>
   );
 }
