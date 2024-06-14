@@ -7,7 +7,7 @@ export default function Home() {
 
   const calculatePercentage = () => {
     const currentDate = new Date();
-    const lastDayOfSummer = new Date("August 31, 2023 23:59:59");
+    const lastDayOfSummer = new Date("August 31, 2024 23:59:59");
 
     const left =
       (lastDayOfSummer.getTime() - currentDate.getTime()) / 24 / 60 / 60 / 1000;
