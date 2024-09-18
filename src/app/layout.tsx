@@ -9,10 +9,10 @@ const pressStart2P = Press_Start_2P({ subsets: ["latin"], weight: ["400"] });
 export const metadata: Metadata = {
   metadataBase: new URL("https://how-long-till-the-sat.vercel.app"),
   title: "how long till the sat?",
-  description: "Be conscious of your summer holidays with a percentage stat.",
+  description: "Be conscious of the upcoming SAT.",
   openGraph: {
     title: "how long till the sat?",
-    description: "Be conscious of your summer holidays with a percentage stat.",
+    description: "Be conscious of the upcoming SAT.",
     url: "https://how-long-till-the-sat.vercel.app",
     siteName: "how long till the sat?",
     locale: "en_US",
