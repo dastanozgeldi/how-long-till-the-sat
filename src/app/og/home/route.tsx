@@ -1,3 +1,4 @@
+import { config } from "@/app/config";
 import { ImageResponse } from "next/server";
 
 export const runtime = "edge";
@@ -11,14 +12,14 @@ export async function GET() {
 
   // Fetch the background image
   const backgroundImageData = await fetch(
-    "https://how-much-summer-is-gone.vercel.app/background.jpeg"
+    "https://how-long-till-the-sat.vercel.app/background.jpeg"
   ).then((res) => res.arrayBuffer());
 
   const currentDate = new Date();
-  const lastDayOfSummer = new Date("August 31, 2024 23:59:59");
+  const lastDay = new Date(config.SAT_DATE);
 
   const left =
-    (lastDayOfSummer.getTime() - currentDate.getTime()) / 24 / 60 / 60 / 1000;
+    (lastDay.getTime() - currentDate.getTime()) / 24 / 60 / 60 / 1000;
   const percentage = left.toFixed(6);
 
   const [wholePart, decimalPart] = percentage.split(".");
@@ -84,7 +85,7 @@ export async function GET() {
               textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
             }}
           >
-            days till school
+            days till the SAT
           </div>
         </div>
       </div>

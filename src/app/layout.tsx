@@ -7,17 +7,17 @@ import Image from "next/image";
 const pressStart2P = Press_Start_2P({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://how-much-summer-is-gone.vercel.app"),
-  title: "n% Summer Is Gone",
+  metadataBase: new URL("https://how-long-till-the-sat.vercel.app"),
+  title: "how long till the sat?",
   description: "Be conscious of your summer holidays with a percentage stat.",
   openGraph: {
-    title: "n% Summer Is Gone",
+    title: "how long till the sat?",
     description: "Be conscious of your summer holidays with a percentage stat.",
-    url: "https://how-much-summer-is-gone.vercel.app",
-    siteName: "n% Summer Is Gone",
+    url: "https://how-long-till-the-sat.vercel.app",
+    siteName: "how long till the sat?",
     locale: "en_US",
     type: "website",
-    images: ["https://how-much-summer-is-gone.vercel.app/og/home"],
+    images: ["https://how-long-till-the-sat.vercel.app/og/home"],
   },
   robots: {
     index: true,
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "max-snippet": -1,
   },
   twitter: {
-    title: "n% Summer Is Gone",
+    title: "how long till the sat?",
     card: "summary_large_image",
     creator: "@dastanozgeldi",
   },
