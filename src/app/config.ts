@@ -1,3 +1,3 @@
 export const config = {
-  SAT_DATE: "October 5, 2024 9:00:00",
+  SAT_DATE: "November 8, 2024 9:00:00",
 };
